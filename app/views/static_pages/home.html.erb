@@ -1,4 +1,13 @@
 <% provide :page_title, 'Home' %>
+<div class="center jumbotron">
+<h1>Selamat Datang ke Travlr</h1>
+<h2>
+  This is the home page for the Travlr application.
+</h2>
+<%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+</div>
+
+
 <a href="<%= about_path %>">About</a>
 <%= link_to('About', about_path) %>
 <%= link_to about_path do %>
