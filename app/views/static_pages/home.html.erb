@@ -1,0 +1,11 @@
+<% provide :page_title, 'Home' %>
+<a href="<%= about_path %>">About</a>
+<%= link_to('About', about_path) %>
+<%= link_to about_path do %>
+	<h1>About Loh</h1>
+<% end %>
+<%= number_to_currency 100000000, unit: 'IDR' %>
+<%= pluralize 2, 'datum' %>
+<%= date_field_tag :hello %>
+<h1>StaticPages#home</h1>
+<p>Find me in app/views/static_pages/home.html.erb</p>
