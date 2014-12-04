@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def create
 
-  	# render json: params
+  	# render json: params and return
   	# render json: params[:user]
   	
   	# @user = User.new(params[:user])
@@ -26,16 +26,23 @@ class UsersController < ApplicationController
 
   	@user = User.new(user_params)
 
-  	@user.save
+  	#@user.save
+    if @user.save
+      do_login(@user)
+      redirect_to user_url(@user), notice: 'User created!'
+    else
+      render :new
+    end
 
   	# redirect_to root_path, notice: 'User created!'
-    redirect_to user_url(@user), notice: 'User created!'
+    # redirect_to user_url(@user), notice: 'User created!'
 
   end
 
   private
 
-  def user_params
-  	params.require(:user).permit(:name, :email)
-  end
+    def user_params
+    	params.require(:user).permit(
+    		:name, :email, :password, :password_confirmation)
+    end
 end
