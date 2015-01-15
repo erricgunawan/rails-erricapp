@@ -5,6 +5,10 @@
 	<tr>
 		<td><%= link_to user.name, user_path(user) %></td>
 		<td><%= user.email %></td>
+		<% if current_user.admin? %>
+			<td><%= link_to "delete 1", destroy_user_path(user.id), method: :delete, data: {confirm: "Yakin bro?"} %></td>
+			<td><%= link_to "delete 2", user_path(user.id), method: :delete, data: {confirm: "Yakin bro?"} %></td>
+		<% end %>
 	</tr>
 <% end %>
 </table>

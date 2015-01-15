@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
 
   # before_action :logged_in_user, only: [:index]
-  before_action :logged_in_user, only: [:index, :edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   # before_action :logged_in_user, except: [:show, :index]
   # after_action
   # around_action
   
   before_action :correct_user, only: [:edit, :update]
+  # before_action :admin_user, only: [:edit, :update]
 
   def index
     # @users = User.all
@@ -64,6 +65,11 @@ class UsersController < ApplicationController
     else
       render edit
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id]).destroy
+    redirect_to users_url, notice: 'OK, User udah dihapus bro'
   end
 
   private

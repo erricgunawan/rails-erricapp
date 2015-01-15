@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
   # put 'users/:id', to: 'users#update'
   patch 'users/:id', to: 'users#update'
+  # delete 'users/:id/destroy', to: 'users#destroy', as: 'destroy_user'
+  delete 'users/:id', to: 'users#destroy', as: 'destroy_user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

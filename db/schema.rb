@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204094049) do
+ActiveRecord::Schema.define(version: 20141218141027) do
+
+  create_table "journals", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "journals", ["user_id"], name: "index_journals_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -19,6 +29,7 @@ ActiveRecord::Schema.define(version: 20141204094049) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+    t.boolean  "admin",           default: false
   end
 
 end
