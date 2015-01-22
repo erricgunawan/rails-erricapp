@@ -21,3 +21,14 @@ User.create(
 		password_confirmation: "password"
 	)
 end
+
+users = User.first(6)
+
+users.each do |user|
+  50.times do |n|
+    user.journals.create!(
+      title: "#{ Faker::Address.city } Trip",
+      content: Faker::Lorem.paragraph(5)
+    )
+  end
+end

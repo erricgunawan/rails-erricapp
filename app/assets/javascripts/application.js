@@ -15,3 +15,14 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+	// $(body).on('ajax:success', function())
+	$('#new_journal').on('ajax:success', function(e, data) {
+		// console.log('okheh');
+		console.log(data);
+		$('.list-journals').prepend(data);
+		$('#journal_title').val();
+		$('#journal_content').val();
+	});
+});
