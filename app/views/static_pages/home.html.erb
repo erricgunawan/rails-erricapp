@@ -12,15 +12,15 @@
 	<% end %>
 
 	<h1>Last 10 Journals</h1>
-	<%= # render @journals %>
-	<% @journals.each do |journal| %>
-		<div class="list-journals">
+	<%= render @journals %>
+	<% # @journals.each do |journal| %>
+		<!--<div class="list-journals">
 			<h3><%= journal.title %></h3>
 			<p><%= journal.content %></p>
 			Posted <%= time_ago_in_words(journal.created_at) %>
 			<hr />
-		</div>
-	<% end %>
+		</div> -->
+	<% # end %>
 <% else %>
 	<div class="center jumbotron">
 		<h1>Selamat Datang ke ErricApp</h1>
